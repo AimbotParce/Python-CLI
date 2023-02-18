@@ -10,9 +10,22 @@ console.setLevelName(console.ERROR, "\033[1;31m%s\033[0m" % console.getLevelName
 console.setLevelName(console.CRITICAL, "\033[1;31m%s\033[0m" % console.getLevelName(console.CRITICAL))
 console.setLevelName(console.INPUT, "\033[1;34m%s\033[0m" % console.getLevelName(console.INPUT))
 
-console.debug("debug")
-console.info("info")
-console.warning("warning")
-console.error("error")
-console.critical("critical")
-print(console.input("Give me input: "))
+console.info("Python-CLI starting:")
+
+try:
+    while True:
+        cmd = console.input("> ")
+
+        if cmd.strip() == "exit":
+            console.info("Exiting...")
+            break
+
+        commands = [c for c in cmd.strip().split(" ") if c != ""]
+        if len(commands) == 0:
+            continue
+
+
+except KeyboardInterrupt:
+    print()
+    console.info("Exiting...")
+    exit(0)

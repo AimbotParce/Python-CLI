@@ -28,9 +28,9 @@ class BasicFormatter:
         if "%(asctime)" in self.fmt:
             kwargs["asctime"] = datetime.now().strftime(self.datefmt)
         if "%(file)" in self.fmt:
-            kwargs["file"] = inspect.stack()[2].filename
+            kwargs["file"] = inspect.stack()[3].filename
         if "%(filename)" in self.fmt:
-            kwargs["filename"] = os.path.basename(inspect.stack()[2].filename)
+            kwargs["filename"] = os.path.basename(inspect.stack()[3].filename)
 
         completeMessage = message % args
         return self.fmt % {"message": completeMessage, **kwargs}
