@@ -1,5 +1,5 @@
 # Python-CLI
-Layout to make an easy CLI in python.
+Very simple automatic CLI for python.
 
 Just add to bin/ any command you want to be able to execute. You can sort them into folders if you wish.
 
